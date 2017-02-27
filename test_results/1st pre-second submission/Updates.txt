@@ -1,0 +1,20 @@
+Result of first set of changes: The lines, especially dashed lines, are still shakey but not as much as the first submission.
+
+Changes made:
+* Adjusted the Guassian parameter:
+	increased kernel size from 5 to 9 (although I'm not sure this made a difference)
+* Tried different Canny low & high thresholds but didn't notice a difference so left them unchanged. 
+* Adjusted Hough parameters:
+	threshold from 1 to 35
+	min_line_length from to 5
+	max_line_gap from 1 to 2
+* Removed vertical slopes when calculating slope averages
+* Adjusted the far-off vertices in the analyzed region to more closely be based on the image size rather than fixed values.
+
+---------------------------------------------------------
+
+Result of second set of changes: Lines are comparable to the samples with no stray wild lines and the follow the lane lines very closely and they look like they are gently swaying in the videos instead of shaking.
+
+Second set of changes:
+* Calculated a center point for each line and used these to calculate the line formula instead of the edge y from each side.
+* Set a threshold on acceptable slopes for each side such that slopes close to 0 are discarded.
